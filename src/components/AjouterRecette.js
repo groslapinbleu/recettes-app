@@ -24,9 +24,6 @@ class AjouterRecette extends Component {
 
     handleChange = (e) => {
         const {name, value} = e.target
-
-        console.log(`handleChange: champ = ${name} valeur = ${value}`)
-
         this.setState({ [name]: value })
     }
 

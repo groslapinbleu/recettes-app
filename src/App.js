@@ -30,9 +30,20 @@ class App extends Component {
   }
 
   ajouterRecette = (recette) => {
-    console.log(recette)
     const recettes = { ...this.state.recettes }
     recettes[`recette-${Date.now()}`] = recette
+    this.setState({ recettes: recettes })
+  }
+
+  majRecette = (key, nouvelleRecette) => {
+    const recettes = { ...this.state.recettes }
+    recettes[key] = nouvelleRecette
+    this.setState({ recettes: recettes })
+  }
+
+  supprRecette = (key) => {
+    const recettes = { ...this.state.recettes }
+    recettes[key] = null
     this.setState({ recettes: recettes })
   }
 
@@ -48,9 +59,12 @@ class App extends Component {
           {cards}
         </div>
         <Admin
+          recettes={this.state.recettes}
           ajouterRecette={this.ajouterRecette}
+          majRecette={this.majRecette}
+          supprRecette={this.supprRecette}
           chargerExemples={this.chargerExemples}>
-          </Admin>
+        </Admin>
       </div>
     )
   }
