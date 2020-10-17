@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
+import AjouterRecette from './AjouterRecette';
 
 class Admin extends Component {
     render() {
         return (
-            <footer>
-                <button onClick={this.props.chargerExemples}>Remplir</button>
-            </footer>
+            <div className="cards">
+                <AjouterRecette ajouterRecette={this.props.ajouterRecette}/>
+
+                <footer>
+                    <button onClick={this.props.chargerExemples}>Remplir</button>
+                </footer>
+            </div>
         );
     }
 }
